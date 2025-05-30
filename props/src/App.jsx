@@ -54,7 +54,7 @@ export default function App() {
     <table border={1}>
       <thead>
         <tr>
-          <th>S.No</th>
+          <th>S.No</th> 
           <th>Name</th>
           <th>Age</th>
           <th>Marks</th>
