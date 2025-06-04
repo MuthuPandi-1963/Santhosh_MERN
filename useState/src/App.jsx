@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import Counter from './Counter'
+import String from './String'
+import Login from './Login'
+import Boolean from './Boolean'
 
 export default function App() {
   const [val,setVal] = useState(100)
@@ -20,6 +23,9 @@ export default function App() {
       <h1>{val}</h1>
       <button onClick={handleClick}>increment a </button>
       <Counter/>
+      <String/>
+      <Login/>
+      <Boolean/>
     </div>
   )
 }
