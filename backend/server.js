@@ -1,4 +1,5 @@
 import express from 'express'
+import dbConfig from './db/dbConfig.js'
 
 const app = express()
 
@@ -9,6 +10,7 @@ app.get("/",(req,res)=>{
 })
 
 app.listen(5000,()=>{
-    console.log("server running successfully on port : 5000 ");
+    dbConfig()
+    console.log("server running successfully on port : 3000 ");
     
 })
