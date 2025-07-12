@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
-export default function EmployeeForm({setLoad,form,update,setUpdate}) {
+export default function EmployeeUpdateForm({form,setLoad}) {
     const [formData,setFormData] = useState(form)
     const handleChange = (e)=>{
         const {name , value} = e.target
@@ -25,16 +25,6 @@ export default function EmployeeForm({setLoad,form,update,setUpdate}) {
         console.log(formData);
         
     }
-    const handleUpdate= async()=>{
-        console.log(formData);
-        const {name,age,position,salary} = formData
-        const res = (await axios.put(`http://localhost:3000/employee/${formData._id}`,{name,age,position,salary})).data
-        console.log(res);
-        setLoad(prev=>!prev)
-        setUpdate(prev=>!prev)
-        
-        
-    }
   return (
     <>
     <div>
@@ -53,12 +43,7 @@ export default function EmployeeForm({setLoad,form,update,setUpdate}) {
         <label htmlFor="salary">Salary</label>
         <input type="number"  placeholder='enter a salary' id='salary' name='salary' onChange={handleChange} value={formData.salary} />
     </div>
-    {update ? 
-    <>
-     <button onClick={handleUpdate}>Update Employee</button> 
-     <button onClick={()=>setUpdate(prev=>!prev)}>Cancel</button>
-     </>:
-    <button onClick={handleSubmit}>Add Employee</button>}
+    <button onClick={handleSubmit}>Add Employee</button>
     <button><Link to={"/"}>See EMployee</Link></button>
 
     </>
